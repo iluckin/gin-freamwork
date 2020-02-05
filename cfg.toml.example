@@ -1,0 +1,45 @@
+title = 'theBearsConfig'
+
+# global server config.
+[server]
+env     = 'release'
+flag     = 'TheBears/0.0.1'
+name    = 'tb'
+listen  = '0.0.0.0:9006'
+domain  = 'https://api.thebears.cn'
+maintain = true
+
+# server logger config
+[server.log]
+format  = 'text'         # json | text
+path    = 'storage/logs/the-bears.log'
+accept  = 'storage/logs/accept.log'
+level   = 'DEBUG'       # DEBUG、INFO、WARN、ERROR、FATAL
+backup  = 7
+channel = 'file,stdout'
+rolling = 'daily'        # daily | size
+[server.log.rotate]
+date = 1
+size = 1024
+
+# check health config
+[server.health]
+sw      = true
+api     = 'http://127.0.0.1:9006/v1/health'
+retry   = 5
+
+[database]
+log = false
+maxConn = 20000
+maxIdleConn = 0
+
+[database.mysql]
+addr = '127.0.0.1:3306'
+user = 'root'
+pass = '2019'
+name = 'bears'
+
+[database.redis]
+addr = '127.0.0.1:6379'
+pass = ''
+index = 0

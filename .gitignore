@@ -1,0 +1,6 @@
+/vendor
+.DS_Store
+.idea
+storage/logs/*
+cfg.toml
+bear
